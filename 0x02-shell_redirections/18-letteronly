@@ -1,2 +1,2 @@
 #!/bin/bash
-cat | grep [a-z][A-Z]
+cat | grep [A-Z]*
