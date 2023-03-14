@@ -1,2 +1,2 @@
 #!/bin/bash
-find .  -empty -pirntf '%P\n' 
+find . -empty -pirntf '%P\n' 
