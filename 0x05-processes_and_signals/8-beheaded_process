@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#Beheaded process
+
+file_name="7-highlander"
+pids=$(pgrep -f "$file_name")
+if [ -n "$pids" ]
+then
+	kill -9 "$pids"
+fi

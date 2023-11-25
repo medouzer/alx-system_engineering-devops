@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Stop me if you can
+
+file_name="4-to_infinity_and_beyond"
+pkill -f $file_name

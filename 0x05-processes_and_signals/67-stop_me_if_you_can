@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Stop me if you can
+
+file_name="7-highlander"
+pkill -f $file_name
