@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 #Double the number of webservers
 
+sudo apt-get update
+sudo apt-get install -y nginx
+
 path_config="/etc/nginx/sites-available/default"
+
+echo "Hello World!" > /var/www/html/index.html
+site_re="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+sudo sed -i "/listen 80 default_server/a rewrite ^/redirect_me $site_re permanent;" $path_config
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/my_404.html
+sudo sed -i "/listen 80 default_server/a error_page 404 /my_404.html; location = /my_404.html {root /usr/share/nginx/html;\n internal;}" $path_config
 sudo sed -i "0,/location \/ {/s/location \/ {/&\n\t\tadd_header X-Served-By '$HOSTNAME';/" $path_config
 
 service nginx restart
