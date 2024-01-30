@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#Install your load balancer
+
+apt-get update
+apt-get install -y haproxy
+apt-get install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.8
+
+path_config = /etc/default/haproxy
+
+echo "ENABLED=1" | tee -a $path_config
+echo "CONFIG=/etc/haproxy/haproxy.cfg" | tee -a $path_config
+
+echo "
+frontend front
+    bind *:80
+    default_backend back
+
+backend back
+    balance roundrobin
+    server 376552-web-01 54.152.181.77:80 check
+    server 376552-web-02 100.25.220.209:80 check" | tee -a /etc/haproxy/haproxy.cfg
+
+service haproxy restart
