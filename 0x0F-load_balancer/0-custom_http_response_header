@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Double the number of webservers
+
+path_config="/etc/nginx/sites-available/default"
+sudo sed -i "0,/location \/ {/s/location \/ {/&\n\t\tadd_header X-Served-By '$HOSTNAME';/" $path_config
+
+service nginx restart
