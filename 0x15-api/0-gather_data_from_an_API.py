@@ -8,9 +8,9 @@ if __name__ == "__main__":
     """ request the data and print it"""
     user_id = sys.argv[1]
     api_url = f"https://jsonplaceholder.typicode.com/"
-    response = requests.get(api_url + f"users/{user_id}")
+    response = requests.get(api_url + f"users?id={user_id}")
     data = response.json()
-    user_name = data.get("name")
+    user_name = data[0].get("name")
     response = requests.get(api_url + f"todos?userId={user_id}")
     data = response.json()
     allt = len(data)
