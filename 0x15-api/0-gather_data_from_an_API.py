@@ -21,4 +21,4 @@ if __name__ == "__main__":
             titles.append(item["title"])
     print(f"Employee {user_name} is done with tasks({tasks_true}/{allt}):")
     for title in titles:
-        print(f"     {title}")
+        print(f"\t {title}")
