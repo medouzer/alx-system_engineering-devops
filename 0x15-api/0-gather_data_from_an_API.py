@@ -1,33 +1,24 @@
 #!/usr/bin/python3
-""" Gather data from an API"""
-
+""" Gather data from an API """
 import requests
 import sys
 
+
 if __name__ == "__main__":
+    """ request the data and print it"""
     user_id = sys.argv[1]
-    base_url = "https://jsonplaceholder.typicode.com/"
-
-    response = requests.get(base_url + "users/" + user_id)
+    api_url = "https://jsonplaceholder.typicode.com/"
+    response = requests.get(api_url + "users/" + user_id)
     user_name = response.json()["name"]
-
-    response = requests.get(base_url + "todos?userId=" + user_id)
-    todo_list = response.json()
-
-    completed_tasks = 0
-    total_tasks = len(todo_list)
-
-    completed_titles = []
-
-    for task in todo_list:
-        if task["completed"]:
-            completed_tasks += 1
-            completed_titles.append(task["title"])
-
-    print("Employee {} is done with tasks({}/{}):".format(
-                                                            user_name,
-                                                            completed_tasks,
-                                                            total_tasks))
-
-    for title in completed_titles:
-        print("\t {}".format(title))
+    response = requests.get(api_url + "todos?userId=" + user_id)
+    data = response.json()
+    allt = len(data)
+    tasks_true = 0
+    titles = []
+    for item in data:
+        if item["completed"]:
+            tasks_true += 1
+            titles.append(item["title"])
+    print(f"Employee {user_name} is done with tasks({tasks_true}/{allt}):")
+    for title in titles:
+        print(f"     {title}")
