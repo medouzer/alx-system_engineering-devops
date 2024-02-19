@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Export to JSON """
+import csv
 import requests
 import sys
 
