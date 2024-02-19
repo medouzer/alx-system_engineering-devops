@@ -22,5 +22,6 @@ if __name__ == "__main__":
     """Export into csv"""
     with open(f'{user_id}.csv', 'w') as file:
         for todo in data:
-            p1 = f'"{user_id}","{user_name}","{todo.get("completed")}","{todo.get("title")}"\n'
+            p1 = f'"{user_id}","{user_name}","{
+                todo.get("completed")}","{todo.get("title")}"\n'
             file.write(p1)
