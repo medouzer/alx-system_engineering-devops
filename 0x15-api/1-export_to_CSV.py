@@ -8,6 +8,7 @@ if __name__ == "__main__":
     """Python script to export data in the CSV format."""
     user_id = sys.argv[1]
     api_url = "https://jsonplaceholder.typicode.com/"
+    """ run a request to get data"""
     response = requests.get(api_url + "users/" + user_id)
     user_name = response.json()["name"]
     response = requests.get(api_url + "todos?userId=" + user_id)
@@ -19,7 +20,9 @@ if __name__ == "__main__":
         if item["completed"]:
             tasks_true += 1
             titles.append(item["title"])
+    """ create .csv file to store the data"""
     with open(f'{user_id}.csv', 'w') as f:
         for task in data:
+            """store data of each user"""
             f.write(f'"{user_id}","{user_name}","{
                 task.get("completed")}","{task.get("title")}"\n')
