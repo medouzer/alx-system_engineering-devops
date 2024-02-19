@@ -5,7 +5,7 @@ import sys
 
 
 if __name__ == "__main__":
-    """ Python script to export data in the CSV format."""
+    """Python script to export data in the CSV format."""
     user_id = sys.argv[1]
     api_url = "https://jsonplaceholder.typicode.com/"
     response = requests.get(api_url + "users/" + user_id)
@@ -19,7 +19,6 @@ if __name__ == "__main__":
         if item["completed"]:
             tasks_true += 1
             titles.append(item["title"])
-    """ save data to a .csv"""
     with open(f'{user_id}.csv', 'w') as f:
         for task in data:
             f.write(f'"{user_id}","{user_name}","{
