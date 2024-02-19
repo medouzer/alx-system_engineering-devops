@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Export to JSON """
-import csv
 import requests
 import sys
 
@@ -20,6 +19,7 @@ if __name__ == "__main__":
         if item["completed"]:
             tasks_true += 1
             titles.append(item["title"])
+    """ creat a csv file and export data to it"""
     with open(f'{user_id}.csv', 'w') as f:
         for task in data:
             f.write(f'"{user_id}","{user_name}","{
