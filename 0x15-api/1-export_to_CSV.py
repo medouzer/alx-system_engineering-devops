@@ -20,13 +20,8 @@ if __name__ == "__main__":
             tasks_true += 1
             titles.append(item["title"])
     """Export into csv"""
-    with open(f'{id}.csv', 'w') as f:
+    with open(f'{user_id}.csv', 'w') as f:
         for todo in data:
             p1 = f'"{user_id}","{user_name}","{todo.get("completed")}",'
             p2 = f'"{todo.get("title")}"\n'
             f.write(p1+p2)
-    # """ creat a csv file and export data to it"""
-    # with open(f'{user_id}.csv', 'w') as f:
-    #     for task in data:
-    #         f.write(f'"{user_id}","{user_name}","{
-    #             task.get("completed")}","{task.get("title")}"\n')
