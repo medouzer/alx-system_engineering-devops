@@ -10,7 +10,7 @@ if __name__ == "__main__":
     api_url = "https://jsonplaceholder.typicode.com/"
     response = requests.get(api_url + "users/" + user_id)
     user_name = response.json()["name"]
-    response = requests.get(api_url + f"todos?userId={user_id}")
+    response = requests.get(api_url + "todos?userId=" + user_id)
     data = response.json()
     allt = len(data)
     tasks_true = 0
