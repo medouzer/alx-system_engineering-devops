@@ -7,7 +7,7 @@ import sys
 if __name__ == "__main__":
     """ request the data and print it"""
     user_id = sys.argv[1]
-    api_url = f"https://jsonplaceholder.typicode.com/"
+    api_url = "https://jsonplaceholder.typicode.com/"
     response = requests.get(api_url + "users/" + user_id)
     user_name = response.json()["name"]
     response = requests.get(api_url + f"todos?userId={user_id}")
