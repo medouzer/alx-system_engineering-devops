@@ -5,6 +5,7 @@ import requests
 
 headers = {"User-Agent": "AlxUserAgent/1.0"}
 
+
 def recurse(subreddit, hot_list=[], after=""):
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=100"
     if after:
